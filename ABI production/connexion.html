@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+</head>
+
+<body>
+
+    <header> 
+		<nav>    
+			<ul>
+				<li><a href="index.html">Accueil</a></li>
+				<li><a href="gc.html">Gestion Commerciale</a></li>
+				<li><a href="gp.html">Gestion des Projets</a></li>
+                <li><a href="rh.html">Gestion RH</a></li>
+                <li><a href="connexion.html">Login</a></li>
+            </ul>
+            
+        </nav>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3B96AA" fill-opacity="1" d="M0,128L80,122.7C160,117,320,107,480,133.3C640,160,800,224,960,213.3C1120,203,1280,117,1360,74.7L1440,32L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
+    </header>
+    
+    <div class="logo">
+        <a href="#"><img src="images/logo.png" alt="Picture"></a>
+    </div>
+
+   <div class="objet">
+
+   </div>
+
+    <section class="connexion" id="loginaccount">
+        <div class="connexion-container" >
+            <h1>Identifiez Vous</h1>
+            <form action="">
+                <div class="champ-text">
+                    <input type="text" id="email">
+                    <span></span>
+                    <label for="">Email</label>
+                </div>
+                <div class="champ-text">
+                    <input type="password" id="password">
+                    <span></span>
+                    <label for="">Mot de Passe</label>
+                </div>
+                <div class="mdp">
+                    <a href="#">Vous avez oublié votre mot de passe ?</a>
+                </div>
+                <button type="submit" class="btn-connexion-2" id="btn-connexion">Se Connecter</button>
+                <div class="creation-compte">
+                    Pas encore membre ? <a href="creation-compte.html">Créer un compte</a>
+                </div>
+            </form>
+        </div>
+    </section>
+    
+
+    <div class="objet2">
+        <div class="map"   id="map" data-aos="fade-up">
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="left box">
+                <h2>A Propos</h2>
+                <div class="content">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Odio impedit, tempore minima vitae fugiat debitis,voluptas placeat omnis at alias
+                        deleniti illo aliquid vero provident perspiciatis, ipsam neque dolorem nesciunt!
+                        <p><a href="#">conditions générales d'utilisation</a></p>
+                        <p>&copy; 2020 La Ligue du Code</p>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="center box">
+                <h2>Contactez Nous</h2>
+                <div class="content">
+                    <form action="#" class="form">
+                        <div class="email1">
+                            <input type="email" placeholder="Votre Email">
+                        </div>
+                        <div class="msg">
+                            <textarea name=""  cols="25" rows="2" placeholder="Votre message..."></textarea>
+                        </div>
+                        <div class="btn">
+                            <button type="submit">Envoyer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="center box">
+
+            </div>
+
+            <div class="right box">
+                <h2>Adresse</h2>
+                <div class="content">
+                    <div class="place">
+                        <span class="fas fa-map-marker-alt"></span>
+                        <span class="text">59560 Ville exemple</span>
+                    </div>
+                    <div class="phone">
+                        <span class="fas fa-phone-alt"></span>
+                        <span class="text">08-42-42-42-42</span>
+                    </div>
+                    <div class="email">
+                        <span class="fas fa-envelope"></span>
+                        <span class="text">abi@exemple.fr</span>
+                    </div>
+                </div>       
+            </div>      
+        </div>  
+    </footer>
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="./scripts/login.js"></script>
+    <script src="https://maps.google.com/maps/api/js?key=AIzaSyCl73Pm8gxDEB1Sm2iVHTB2b-SaTCKSOjU" type="text/javascript"></script>
+    <script src="./scripts/index.js"></script>
+    
+</body>
+
+</html>
