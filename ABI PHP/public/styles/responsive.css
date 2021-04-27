@@ -1,0 +1,87 @@
+/* Logo and description responsive */
+
+@media all and (max-width: 440px) {
+    .logo img {
+        display: none;
+    }
+      .description {
+        display: none;
+    }
+}
+
+/* Navigation responsive */
+
+@media all and (max-width: 830px) {
+    .topnav {
+        margin-left: 10px;
+    }
+    .topnav a:not(:first-child) {display: none;}
+    .topnav a.icon {
+    float: right;
+    display: block;
+    }
+}
+
+@media all and (max-width: 830px) {
+    .topnav {
+        margin-left: 10px;
+    }
+    .topnav.responsive {position: relative;}
+    .topnav.responsive a.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+} 
+
+/* Accueil and form responsive */
+
+@media all and (max-width: 830px) {
+    .home {
+        width: 100%;
+        display: block;
+    }
+
+    .videoContainer {
+        width: auto;
+    }
+ 
+    .welcome {
+        width: auto;
+        border: 20px rgba(230, 124, 10, 0.843) dotted;
+        border-radius: 18px;
+        box-shadow: white;
+        text-shadow: rgb(211, 146, 49);
+        text-align: center;
+        color: rgb(59, 87, 142);
+        font-style: italic;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .formContainer {
+        width: 25%;
+        margin-left: 10px;
+      }
+}
+
+/* Footer responsive */
+
+@media all and (max-width: 880px) {
+    .footerContainer {
+        display: table-column;
+        width: 100%;
+    }
+
+    .map {
+        justify-content: center;
+        text-align: center;
+    }
+}
