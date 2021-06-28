@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Bienvenue!
+			{% endblock %}
+		</title>
+		<link
+		rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@1.1.0/dist/css/axentix.min.css">
+		{# Run `composer require symfony/webpack-encore-bundle`
+																																																																																																				           and uncomment the following Encore helpers to start using Symfony UX #}
+		{% block stylesheets %}
+			{#{{ encore_entry_link_tags('app') }}#}
+		{% endblock %}
+		<Link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+		{% block javascripts %}
+			{#{{ encore_entry_script_tags('app') }}#}
+		{% endblock %}
+	</head>
+	<body class="layout with-sidenav fixed-sidenav">
+		<header>
+			<nav class="navbar primary">
+				<a href="{{ path('app_home') }}" class="navbar-brand">AFPA DWWM Mission 8</a>
+				<div class="navbar-menu ml-auto">
+					<div class="dropdown" id="accueil" data-ax="dropdown">
+						<div class="navbar-link dropdown-trigger">
+							Accueil
+						</div>
+						<div class="dropdown-content right-aligned white shadow-1">
+							<a class="dropdown-item" href="{{ path('app_home') }}">Home</a>
+							<a class="dropdown-item" href="{{ path('mentions') }}">Mentions</a>
+							<a class="dropdown-item" href="{{ path('contact') }}">Contact</a>
+						</div>
+					</div>
+					<div class="dropdown" id="annonces" data-ax="dropdown">
+						<div class="navbar-link dropdown-trigger">
+							Annonces
+						</div>
+
+						<div class="dropdown-content right-aligned white shadow-1">
+							<a class="dropdown-item" href="{{ path('liste') }}">Liste</a>
+							{% if is_granted("ROLE_USER") %}
+								<a class="dropdown-item" href="{{ path('annonces_ajout') }}">Ajout</a>
+								<a class="dropdown-item" href="{{ path('annonces_index') }}">Gestion annonces</a>
+								{# <a class="dropdown-item" href="{{ path('admin_categories_home') }}">Catégories</a> #}
+								{# <a class="dropdown-item" href="{{ path('admin_stats') }}">Statistiques</a> #}
+							{% endif %}
+						</div>
+					</div>
+					<div class="dropdown" id="connexion" data-ax="dropdown">
+						<div class="navbar-link dropdown-trigger">
+							Mon compte
+						</div>
+						<div class="dropdown-content right-aligned white shadow-1">
+							<a class="dropdown-item" href="{{ path('app_login') }}">Login/out</a>
+
+							{% if is_granted("ROLE_USER" ) %}
+								<a class="dropdown-item" href="{{ path('users') }}">Profil</a>
+
+
+							{% else %}
+								<a class="dropdown-item" href="{{ path('app_register') }}">Enregistrement</a>
+							{% endif %}
+						</div>
+					</div>
+					{% if is_granted("ROLE_ADMIN") %}
+						<div class="dropdown" id="admin" data-ax="dropdown">
+							<div class="navbar-link dropdown-trigger">
+								Admin
+							</div>
+							<div class="dropdown-content right-aligned blue shadow-1">
+
+								<a class="dropdown-item" href="{{ path('admin_categories_home') }}">Catégories</a>
+								<a class="dropdown-item" href="{{ path('admin_annonces_home') }}">Activation annonces</a>
+								{# <a class="dropdown-item" href="{{ path('admin_stats') }}">Statistiques</a> #}
+							</div>
+						</div>
+					{% endif %}
+				</div>
+			</nav>
+		</header>
+
+		<div id="example-sidenav" data-ax="sidenav" class="sidenav shadow-1 large fixed primary">
+			<div class="sidenav-header">
+				<button data-target="example-sidenav" class="sidenav-trigger">
+					<i class="fas fa-times"></i>
+				</button>
+				<img class="logo dropshadow-1" src="{{asset('images/logo.png')}}" alt="Logo"/>
+			</div>
+			{% if is_granted("ROLE_USER") %}
+				<a href="{{path('users')}}" class="sidenav-link ">Mon profil</a>
+				<a href="{{ path('users_data') }}" class="sidenav-link">Mes annonces</a>
+			{% endif %}
+		</div>
+
+		<main>
+			<button data-target="example-sidenav" class="btn rounded-1 press amaranth dark-1 sidenav-trigger hide-md-up">
+				Open sidenav
+			</button>
+			{% block body %}{% endblock %}
+		</main>
+
+
+		<footer class="footer primary">
+			Copyright © 2021 - DIGI GEEKs
+		</footer>
+
+		<script src="https://cdn.jsdelivr.net/npm/axentix@1.1.0/dist/js/axentix.min.js"></script>
+		<script src="{{ asset('js/scripts.js')}}"></script>
+	</body>
+</html>

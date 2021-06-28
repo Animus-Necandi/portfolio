@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte!
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<form method="post">
+
+			<div class="grix xs1 sm1">
+				{% if error %}
+					<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}
+					</div>
+				{% endif %}
+
+				{% if app.user %}
+					<div class="pos-xs1 py-5">
+						Vous êtes connecté(e) avec cette adresse mail:
+						{{ app.user.username }}
+						<a href="{{ path('app_logout') }}" class="shadow-5 rounded-1 primary p-1 ml-3">Se déconnecter</a>
+					</div>
+				{% endif %}
+				<div class="form-field pos-xs1">
+					<h1 class="h3 mb-3 font-weight-normal">Pour vous connecter</h1>
+					<label for="inputEmail">Email</label>
+					<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+					<label for="inputPassword">Mot de passe</label>
+					<input type="password" name="password" id="inputPassword" class="form-control" required>
+
+					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+				</div>
+				<div class="pos-xs1">
+					<button class="shadow-5 rounded-1 primary p-1" type="submit">
+						Se connecter
+					</button>
+				</div>
+
+			</form>
+			<div class="pos-xs1">
+				<p>
+					<a href="{{ path('app_forgot_password_request') }}">Mot de passe oublié</a>
+				</p>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

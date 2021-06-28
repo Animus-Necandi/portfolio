@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription
+{% endblock %}
+
+{% block body %}
+	{% for flashError in app.flashes('verify_email_error') %}
+		<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+	{% endfor %}
+
+	<h1>Inscription</h1>
+
+
+	<div class="grix xs2 sm3">
+		<div class="form-field pos-xs2">
+
+			<p class="txt-red">Les champs avec un * sont obligatoires</p>
+
+			{{ form_start(registrationForm) }}
+			{{ form_row(registrationForm.email, { label: 'Entrez un e-mail valide*'}) }}
+			{{ form_row(registrationForm.plainPassword, {
+            label: 'Mot de passe* : 6 caractères minimum'
+        }) }}
+			{{ form_row(registrationForm.firstname,{ label: 'Prénom*'}) }}
+			{{ form_row(registrationForm.name, { label:'Nom*: Le vrai sinon vous êtes désintégré par notre bot'}) }}
+			{{ form_row(registrationForm.agreeTerms,{ label:'Conditions générales*'}) }}
+		</div>
+		<div class="pos-xs2">
+
+			<button type="submit" class="btn">Enregistrer</button>
+			{{ form_end(registrationForm) }}
+
+		</div>
+	</div>
+{% endblock %}
